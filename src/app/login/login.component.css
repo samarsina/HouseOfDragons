@@ -1,0 +1,35 @@
+.form {
+    padding: 20px;
+    width: 600px;
+    margin-left: 91px;
+}
+
+.main-logo {
+    width: 120px;
+    border-radius: 71%;
+    height: 112px;
+}
+
+.title {
+    text-align: center;
+    margin-top: 30px;
+    padding: 10px;
+    font-family: ui-sans-serif;
+    font-size:50px
+}
+
+.leftSection {
+    /* background-color: brown; */
+}
+
+.rightSection {
+    /* background-color: aqua; */
+}
+
+.btn{
+    width: 140px;
+    height: 40px;
+    /* background: #781515; */
+    background: linear-gradient(90deg, rgb(227 29 29 / 89%) 34%, rgba(230,144,22,0.9864320728291317) 98%, rgb(247 217 3 / 92%) 100%);
+    border: none;
+}
