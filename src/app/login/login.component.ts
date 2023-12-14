@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { EncryptionService } from '../services/encryption.service';
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ import { NgToastService } from 'ng-angular-popup';
 export class LoginComponent {
   loginForm: any = FormGroup;
 
-  constructor(private fb: FormBuilder,private encryptSvc:EncryptionService,
+  constructor(private fb: FormBuilder,private encryptSvc:EncryptionService,private spinner: NgxSpinnerService,
     private toast: NgToastService,private router:Router) {
     this.loginForm = this.fb.group({
       email: new FormControl('', Validators.required),
@@ -21,7 +22,12 @@ export class LoginComponent {
   }
 
   ngOnInit() {
+    this.spinner.show();
 
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      this.spinner.hide();
+    }, 5000);
   }
 
   save(): void {
@@ -30,13 +36,13 @@ export class LoginComponent {
       password: this.loginForm.value.password
     }
     console.log("userdata",userData)
-    debugger
+    
     if(userData  && userData.email !== "" && userData.password !== ""){
     // without encryptedData 
     localStorage.setItem("userData", JSON.stringify(userData))
     // with encryptedData 
-    // const encryptedData = this.encryptSvc.encrypt(userData);
-    // localStorage.setItem('encryptedData', encryptedData);
+    const encryptedData = this.encryptSvc.encrypt(userData);
+    localStorage.setItem('encryptedData', encryptedData);
     
     this.router.navigate(['/dashboard'])
    

@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { NewsService } from './news.service';
 import { Chart, ChartConfiguration, ChartOptions } from 'chart.js/auto';
+import { NgxSpinnerService } from "ngx-spinner";
 export class piedata {
   'id': number;
   'title': string
@@ -36,13 +37,20 @@ export class AppComponent {
   appeal: any;
 
 
-  constructor(private newsService: NewsService,private cdr: ChangeDetectorRef,) {
+  constructor(private newsService: NewsService,private cdr: ChangeDetectorRef,private spinner: NgxSpinnerService) {
 
   }
 
 
 
   ngOnInit() {
+    this.spinner.show();
+
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      this.spinner.hide();
+    }, 5000);
+  
     console.log("first")
     // let data=  document.getElementById('demo');
     // if(data ){

@@ -1,1 +1,114 @@
-<p>dashboard works!</p>
+<kendo-grid [data]="gridData"  [pageSize]="pageSize"
+            [skip]="skip"
+            [pageable]="true" (resize)="onResize($event)">
+  <kendo-grid-column >
+    <ng-template kendoGridHeaderTemplate >
+      <!-- Your custom header title content goes here -->
+ 
+    </ng-template>
+    <ng-template kendoGridCellTemplate let-dataItem>
+      <button title="Select" routerLink="/main/processed-appeals" [queryParams]="{ agency: 'Alamenda'}" class="btn -gradient -sm" type="submit">Select</button>
+
+    </ng-template>
+  </kendo-grid-column>
+
+  <kendo-grid-column  >
+    <ng-template kendoGridHeaderTemplate >
+      <!-- Your custom header title content goes here -->
+      Appeal Status
+    </ng-template>
+    <ng-template kendoGridCellTemplate let-dataItem>
+      Pocessed          
+    </ng-template>
+  </kendo-grid-column>
+
+  <kendo-grid-column   >
+    <ng-template kendoGridHeaderTemplate >
+      <!-- Your custom header title content goes here -->
+      Citation
+    </ng-template>
+    <ng-template kendoGridCellTemplate let-dataItem>
+      87346782   
+    </ng-template>
+  </kendo-grid-column>
+
+  <kendo-grid-column   >
+    <ng-template kendoGridHeaderTemplate >
+      <!-- Your custom header title content goes here -->
+      Plate
+    </ng-template>
+    <ng-template kendoGridCellTemplate let-dataItem>
+      989734b872                   
+    </ng-template>
+  </kendo-grid-column>
+
+  <kendo-grid-column  >
+    <ng-template kendoGridHeaderTemplate >
+      <!-- Your custom header title content goes here -->
+      Issue Date
+    </ng-template>
+    <ng-template kendoGridCellTemplate let-dataItem>
+      7/11/2023 4:30 PM                    
+    </ng-template>
+  </kendo-grid-column>
+
+  <kendo-grid-column  >
+    <ng-template kendoGridHeaderTemplate >
+      <!-- Your custom header title content goes here -->
+      Decision Code
+    </ng-template>
+    <ng-template kendoGridCellTemplate let-dataItem>
+      00                   
+    </ng-template>
+  </kendo-grid-column>
+
+  <kendo-grid-column  >
+    <ng-template kendoGridHeaderTemplate >
+      <!-- Your custom header title content goes here -->
+      Appellant Name
+    </ng-template>
+    <ng-template kendoGridCellTemplate let-dataItem>
+      EDGAR SILVA       
+    </ng-template>
+  </kendo-grid-column>
+
+  
+  <kendo-grid-column   >
+    <ng-template kendoGridHeaderTemplate >
+      <!-- Your custom header title content goes here -->
+      Name Record
+    </ng-template>
+    <ng-template kendoGridCellTemplate let-dataItem>
+      SILVA GAITAN EDGAR MIGUEL              
+    </ng-template>
+  </kendo-grid-column>
+
+  <kendo-grid-column  >
+    <ng-template kendoGridHeaderTemplate >
+      <!-- Your custom header title content goes here -->
+      Decision Date
+    </ng-template>
+    <ng-template kendoGridCellTemplate let-dataItem>
+      7/11/2023 4:30 PM             
+    </ng-template>
+  </kendo-grid-column>
+
+  <kendo-grid-column  >
+    <ng-template kendoGridHeaderTemplate >
+      <!-- Your custom header title content goes here -->
+      Appellant Email
+    </ng-template>
+    <ng-template kendoGridCellTemplate let-dataItem>
+      TESTING@GMAIL.COM             
+    </ng-template>
+  </kendo-grid-column> 
+                      <ng-template kendoPagerTemplate>
+                        <kendo-grid-spacer></kendo-grid-spacer>
+                        <kendo-pager-prev-buttons></kendo-pager-prev-buttons>
+                        <kendo-pager-numeric-buttons
+                          [buttonCount]="3"
+                        ></kendo-pager-numeric-buttons>
+                        <kendo-pager-next-buttons></kendo-pager-next-buttons>
+                        <kendo-pager-info></kendo-pager-info>
+                      </ng-template>
+</kendo-grid>
